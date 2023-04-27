@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Exemplo de Mapa</title>
+    <style>
+      /* Define o tamanho do mapa */
+      #map {
+        height: 100%;
+      }
+
+      /* Define o tamanho do painel de controle */
+      #floating-panel {
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      
+      /* Define a altura da página inteira */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cria o elemento que exibe o mapa -->
+    <div id="map"></div>
+
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="Recife, PE">
+      <input id="submit" type="button" value="Geocode">
+    </div>
+    
+    <!-- Inclui o código JavaScript do Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYx4u1Hc1VEeA8b8EscFBYTMJv0on1JRI&callback=initMap"
+    type="text/javascript"></script>    
+    <!-- Define o script que inicializa o mapa -->
+    <script>
+      function initMap() {
+        // Define as coordenadas do centro do mapa
+        var centroDoMapa = {lat: -8.055353, lng: -34.8719};
+        
+        // Cria o mapa
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: centroDoMapa,
+          zoom: 20
+        });
+      }
+    </script>
+  </body>
+</html>
